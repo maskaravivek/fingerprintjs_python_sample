@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'fingerprintjs_python_sample.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'localhost',
-        'PORT': 5432,
-        'NAME': 'userdb',
-        'USER': 'db_admin',
-        'PASSWORD': 'MyPass@123'
+        'HOST': 'localhost', # or your remote database host
+        'PORT': 5432, 
+        'NAME': '<YOUR_POSTGRES_DB_NAME>',
+        'USER': '<YOUR_POSTGRES_USER_NAME>',
+        'PASSWORD': '<YOUR_POSTGRES_USER_PASSWORD>'
     }
 }
 
