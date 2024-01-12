@@ -1,0 +1,23 @@
+<h1>Signup</h1>
+
+<script>
+    const fpPromise = import('https://fpjscdn.net/v3/<YOUR_PUBLIC_KEY>')
+        .then(FingerprintJS => FingerprintJS.load())
+
+    fpPromise
+        .then(fp => fp.get())
+        .then(result => {
+            const visitorId = result.visitorId
+            const requestId = result.requestId
+    
+            document.querySelector('#id_fingerprint').value = visitorId
+            document.querySelector('#id_requestId').value = requestId
+        })
+</script>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Signup</button>
+    <a href="{% url 'login' %}">Already have account?</a>
+</form>
