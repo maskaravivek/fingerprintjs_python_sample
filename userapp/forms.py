@@ -55,6 +55,7 @@ class SignupForm(UserCreationForm):
         
         if fingerprint:
             # Check if a user with the same fingerprint already exists
+            # This is only for demonstration purposes, in a real-world scenario you should use a threshold to determine if the fingerprint was used more than n times in the last t minutes. 
             existing_user = User.objects.filter(fingerprint=fingerprint).exclude(pk=self.instance.pk).first()
             if existing_user:
                 raise ValidationError('Another user with the same fingerprint already exists.')   
